@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace REST_API_Granja.Models;
-[Table("animal_type")]
+[Table("animal_types")]
 public class AnimalType
 {
     [Key]
