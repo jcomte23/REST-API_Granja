@@ -16,13 +16,11 @@ public class AnimalTypesController : ControllerBase
         _context = context;
     }
 
-
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AnimalType>>> GetAnimalTypes()
     {
         return await _context.AnimalTypes.ToListAsync();
     }
-
 
     [HttpGet("{id}")]
     public async Task<ActionResult<AnimalType>> GetAnimalType(int id)
