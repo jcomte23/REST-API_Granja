@@ -6,6 +6,7 @@ namespace REST_API_Granja.Data;
 public class ApplicationDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<AnimalType> AnimalTypes { get; set; }
+    public DbSet<Animal> Animals { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
