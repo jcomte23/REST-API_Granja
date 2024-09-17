@@ -28,8 +28,24 @@ builder.Services.AddSwaggerGen(c =>
     {
         Version = "v1",
         Title = "API Granja",
-        Description = "API version 1"
+        Description = "API version 1 for managing farm animals. This version includes basic CRUD operations for animal types and animals.",
+        TermsOfService = new Uri("https://github.com/jcomte23/REST-API_Granja/blob/main/LICENSE"),
+        Contact = new OpenApiContact
+        {
+            Name = "Javier Cómbita Téllez",
+            Email = "jcomte23@outlook.com",
+            Url = new Uri("https://github.com/jcomte23")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "GNU General Public License v3.0",
+            Url = new Uri("https://github.com/jcomte23/REST-API_Granja/blob/main/LICENSE")
+        }
     });
+
+
+
+    
 
     // Version 2
     c.SwaggerDoc("v2", new OpenApiInfo
@@ -38,8 +54,6 @@ builder.Services.AddSwaggerGen(c =>
         Title = "API Granja",
         Description = "API version 2"
     });
-
-
 
     // Habilita las anotaciones Swagger
     c.EnableAnnotations();
@@ -52,9 +66,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        // Añadir v1 y v2 en la UI de Swagger
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "API Granja v1");
-        options.SwaggerEndpoint("/swagger/v2/swagger.json", "API Granja v2");
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Version 1");
+        options.SwaggerEndpoint("/swagger/v2/swagger.json", "Version 2");
     });
 }
 
