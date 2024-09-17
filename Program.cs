@@ -1,5 +1,6 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using REST_API_Granja.Data;
 
@@ -21,10 +22,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(options =>
 {
     // Version 1
-    c.SwaggerDoc("v1", new OpenApiInfo
+    options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
         Title = "API Granja",
@@ -43,21 +44,30 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-
-
-    
-
     // Version 2
-    c.SwaggerDoc("v2", new OpenApiInfo
+    options.SwaggerDoc("v2", new OpenApiInfo
     {
         Version = "v2",
         Title = "API Granja",
-        Description = "API version 2"
+        Description = "API version 2. This version includes new features and improvements over version 1. For detailed changes, check the changelog.",
+        TermsOfService = new Uri("https://github.com/jcomte23/REST-API_Granja/blob/main/LICENSE"),
+        Contact = new OpenApiContact
+        {
+            Name = "Javier Cómbita Téllez",
+            Email = "jcomte23@outlook.com",
+            Url = new Uri("https://github.com/jcomte23")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "GNU General Public License v3.0",
+            Url = new Uri("https://github.com/jcomte23/REST-API_Granja/blob/main/LICENSE")
+        }
     });
 
-    // Habilita las anotaciones Swagger
-    c.EnableAnnotations();
+    // Enable annotations for better Swagger documentation
+    options.EnableAnnotations();
 });
+
 
 var app = builder.Build();
 
