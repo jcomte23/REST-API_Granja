@@ -8,6 +8,7 @@ namespace REST_API_Granja.Controllers.v2.Animals;
 
 [ApiController]
 [Route("api/v2/[controller]")]
+[ApiExplorerSettings(GroupName = "v2")]
 public class AnimalsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
