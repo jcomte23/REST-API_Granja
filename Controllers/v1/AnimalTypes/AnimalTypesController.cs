@@ -19,9 +19,9 @@ public class AnimalTypesController : ControllerBase
 
     [HttpGet]
     [SwaggerOperation(
-    Summary = "Retrieves all animal types",
-    Description = "Gets a list of all animal types in the database."
-)]
+        Summary = "Retrieves all animal types",
+        Description = "Gets a list of all animal types in the database."
+    )]
     [SwaggerResponse(200, "Returns a list of animal types.", typeof(IEnumerable<AnimalType>))]
     [SwaggerResponse(500, "An internal server error occurred.")]
     public async Task<ActionResult<IEnumerable<AnimalType>>> GetAnimalTypes()
